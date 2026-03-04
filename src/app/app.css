@@ -1,0 +1,138 @@
+/* mini dysk */
+/* mini dysk */
+.mini-disk {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #222 0%, #000 80%);
+  box-shadow: 0 0 10px rgba(255,255,255,0.1) inset,
+              0 4px 10px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #F5F5F7;
+  z-index: 1000;
+  animation: spin-mini 10s linear infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* gładkie powiększenie */
+}
+
+/* hover – powiększenie + zatrzymanie obracania */
+
+
+/* animacja mini dysku */
+@keyframes spin-mini {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* menu */
+.menu {
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  background: rgba(0,0,0,0.9);
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;                 /* początkowo niewidoczne */
+  transform: scale(0.8);      /* początkowo mniejsze */
+  transform-origin: top left;  /* punkt skali przy mini dysku */
+  pointer-events: none;        /* nie klikalne gdy zamknięte */
+  transition: all 0.3s ease;  /* animacja */
+  z-index: 1001;
+}
+
+.menu.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;       /* aktywne po odkryciu */
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 10px 0;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #F5F5F7;   /* nowy kolor tekstu */
+  font-weight: bold;
+}
+.mini-disk:hover {
+  animation-play-state: paused;
+  transform: scale(1.1); /* opcjonalnie lekki powiększony efekt hover */
+}
+.mini-disk {
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+}
+
+.menu.active {
+  display: block;
+}
+
+/* Kółko profilowe */
+.profile-circle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #1db954; /* Spotify green */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2000; /* <<< DAJEMY WYŻSZY Z-INDEX */
+}
+
+/* Menu profilu */
+.profile-menu {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  display: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 2000; /* <<< tak samo */
+}
+
+.profile-menu.active {
+  display: block;
+}
+
+.profile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-menu li a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.profile-menu li a:hover {
+  background-color: #f1f1f1;
+}
