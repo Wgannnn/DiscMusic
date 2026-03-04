@@ -8,6 +8,9 @@
     <li *ngIf="!authService.loggedIn()">
       <a routerLink="/login" (click)="menuOpen = false">Login</a>
     </li>
+    <li *ngIf="authService.loggedIn()">
+      <a routerLink="/settings" (click)="menuOpen = false">Settings</a>
+    </li>
     <li><a routerLink="/playlists" (click)="menuOpen = false">Playlists</a></li>
   </ul>
 </div>

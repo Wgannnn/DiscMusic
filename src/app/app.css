@@ -1,5 +1,8 @@
 /* mini dysk */
 /* mini dysk */
+*{
+    font-family: 'Montserrat', sans-serif;
+}
 .mini-disk {
   position: fixed;
   top: 20px;
